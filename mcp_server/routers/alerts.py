@@ -33,7 +33,7 @@ class AlertRequest(BaseModel):
     outsideRth: bool = Field(False, description="Set to true to allow the alert to trigger outside regular trading hours.")
     iTtif: bool = Field(False, description="Set to true to allow the alert to trigger during extended trading hours.")
 
-    class ConfigDict:
+    model_config = ConfigDict(
         json_schema_extra = {
             "example": {
                 "alertName": "Price Alert for IBM",
@@ -49,6 +49,7 @@ class AlertRequest(BaseModel):
                 "tif": "GTC"
             }
         }
+    )
 
 class AlertActivationRequest(BaseModel):
     """Request model for activating or deactivating an alert."""

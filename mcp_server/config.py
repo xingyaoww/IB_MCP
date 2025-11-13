@@ -4,9 +4,9 @@ import sys
 # Add routers path
 # Load routers path and inject into sys.path
 ROUTERS_PATH = os.environ.get("ROUTERS_PATH")
-if os.path.isdir(ROUTERS_PATH):
+if ROUTERS_PATH and os.path.isdir(ROUTERS_PATH):
     sys.path.insert(0, ROUTERS_PATH)
-else:
+elif ROUTERS_PATH:
     print(f"⚠️ Warning: ROUTERS_PATH '{ROUTERS_PATH}' does not exist.")
 
 

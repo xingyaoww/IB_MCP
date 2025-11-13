@@ -50,7 +50,7 @@ class HmdsScannerRequest(BaseModel):
     secType: str = Field(..., description="The security type, e.g., 'STK'.")
     filters: Any = Field(None, description="An object containing scanner filters.")
 
-    class ConfigDict:
+    model_config = ConfigDict(
         json_schema_extra = {
             "example": {
                 "instrument": "STK",
@@ -63,6 +63,7 @@ class HmdsScannerRequest(BaseModel):
                 ]
             }
         }
+    )
 
 
 # --- Scanner Router Endpoints ---
